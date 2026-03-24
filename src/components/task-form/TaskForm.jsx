@@ -1,3 +1,4 @@
+import Tag from "../tag/Tag";
 import "./TaskForm.css";
 
 const TaskForm = () => {
@@ -12,9 +13,9 @@ const TaskForm = () => {
 
         <div className="task_form_bottom">
           <div>
-            <button className="tag">Dev</button>
-            <button className="tag">QA</button>
-            <button className="tag">Product Owner</button>
+            <Tag tagName="Dev" />
+            <Tag tagName="QA" />
+            <Tag tagName="Product Owner" />
           </div>
 
           <div>
