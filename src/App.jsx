@@ -1,7 +1,11 @@
+import "./App.css";
+import TaskForm from "./components/task-form/TaskForm";
+
 const App = () => {
   return (
     <div className="app">
-      <header className="app_header">header</header>
+      <h1 className="app_title">Jira Board</h1>
+      <TaskForm />
       <main className="app_main">
         <section className="task_column">Section 1</section>
         <section className="task_column">Section 2</section>
