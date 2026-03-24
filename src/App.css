@@ -5,17 +5,11 @@
 
 .app_title {
   text-align: center;
-  margin: 50px;
+  margin: 40px;
 }
 
 .app_main {
   display: flex;
   justify-content: space-evenly;
   padding: 20px 8%;
-}
-
-.task_column {
-  width: 30%;
-  background-color: orangered;
-  margin: 20px;
 }

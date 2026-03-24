@@ -20,12 +20,10 @@ const TaskForm = () => {
 
           <div>
             <select className="task_status">
-              <option value="Ready for Development">
-                Ready for Development
-              </option>
+              <option value="To Do">To Do</option>
               <option value="In Progress">In Progress</option>
-              <option value="Ready for Test">Ready for Test</option>
-              <option value="Closed">Closed</option>
+              <option value="In Review">In Review</option>
+              <option value="Done">Done</option>
             </select>
             <button type="submit" className="task_submit">
               + Add
