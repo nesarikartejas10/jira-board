@@ -6,6 +6,7 @@ const TaskForm = () => {
   const [taskData, setTaskData] = useState({
     task: "",
     status: "To Do",
+    tags: [],
   });
 
   const handleTaskChange = (e) => {
@@ -15,10 +16,27 @@ const TaskForm = () => {
     });
   };
 
-  console.log(taskData);
+  const selectedTag = (tag) => {
+    if (taskData.tags.some((item) => item === tag)) {
+      const filterTags = taskData.tags.filter((item) => item != tag);
+      setTaskData((prev) => {
+        return { ...prev, tags: filterTags };
+      });
+    } else {
+      setTaskData((prev) => {
+        return { ...prev, tags: [...prev.tags, tag] };
+      });
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(taskData);
+  };
+
   return (
     <header className="app_header">
-      <form className="task_form">
+      <form className="task_form" onSubmit={handleSubmit}>
         <input
           type="text"
           className="task_input"
@@ -30,9 +48,9 @@ const TaskForm = () => {
 
         <div className="task_form_bottom">
           <div>
-            <Tag tagName="Dev" />
-            <Tag tagName="QA" />
-            <Tag tagName="Product Owner" />
+            <Tag tagName="Dev" selectedTag={selectedTag} />
+            <Tag tagName="QA" selectedTag={selectedTag} />
+            <Tag tagName="Product Owner" selectedTag={selectedTag} />
           </div>
 
           <div>
