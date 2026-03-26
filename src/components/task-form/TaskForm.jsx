@@ -32,7 +32,13 @@ const TaskForm = ({ setTasks }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTasks((prev) => [...prev, taskData]);
+    const newTask = {
+      ...taskData,
+      id: crypto.randomUUID(),
+    };
+
+    setTasks((prev) => [...prev, newTask]);
+    setTaskData({ task: "", status: "To Do", tags: [] });
   };
 
   return (

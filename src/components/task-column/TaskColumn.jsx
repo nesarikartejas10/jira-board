@@ -9,7 +9,12 @@ const TaskColumn = ({ title, Icon, color, tasks, status }) => {
         <h2>{title}</h2>
       </div>
 
-      <TaskCard />
+      {tasks.length > 0 &&
+        tasks.map((task) => {
+          return (
+            task.status === status && <TaskCard key={task.id} task={task} />
+          );
+        })}
     </section>
   );
 };
