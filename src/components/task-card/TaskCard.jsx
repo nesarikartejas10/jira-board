@@ -3,7 +3,7 @@ import "./TaskCard.css";
 import { Trash2 } from "lucide-react";
 import Tag from "../tag/Tag";
 
-const TaskCard = ({ task }) => {
+const TaskCard = ({ task, handleDeleteTask }) => {
   return (
     <article className="task_card">
       <p className="task_text">{task.task}</p>
@@ -14,7 +14,10 @@ const TaskCard = ({ task }) => {
           ))}
         </div>
         <div className="task_delete">
-          <Trash2 className="trash_icon" />
+          <Trash2
+            className="trash_icon"
+            onClick={() => handleDeleteTask(task.id)}
+          />
         </div>
       </div>
     </article>

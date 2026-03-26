@@ -1,7 +1,14 @@
 import TaskCard from "../task-card/TaskCard";
 import "./TaskColumn.css";
 
-const TaskColumn = ({ title, Icon, color, tasks, status }) => {
+const TaskColumn = ({
+  title,
+  Icon,
+  color,
+  tasks,
+  status,
+  handleDeleteTask,
+}) => {
   return (
     <section className="task_column">
       <div className="task_column_heading">
@@ -12,7 +19,13 @@ const TaskColumn = ({ title, Icon, color, tasks, status }) => {
       {tasks.length > 0 &&
         tasks.map((task) => {
           return (
-            task.status === status && <TaskCard key={task.id} task={task} />
+            task.status === status && (
+              <TaskCard
+                key={task.id}
+                task={task}
+                handleDeleteTask={handleDeleteTask}
+              />
+            )
           );
         })}
     </section>

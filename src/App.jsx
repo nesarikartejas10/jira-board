@@ -10,6 +10,11 @@ import { useState } from "react";
 const App = () => {
   const [tasks, setTasks] = useState([]);
 
+  const handleDeleteTask = (taskId) => {
+    const filteredTasks = tasks.filter((task) => task.id != taskId);
+    setTasks(filteredTasks);
+  };
+
   return (
     <div className="app">
       <h1 className="app_title">Sprint Desk</h1>
@@ -21,6 +26,7 @@ const App = () => {
           color="#0052CC"
           tasks={tasks}
           status="To Do"
+          handleDeleteTask={handleDeleteTask}
         />
         <TaskColumn
           title="In Progress"
@@ -28,6 +34,7 @@ const App = () => {
           color="#FF8B00"
           tasks={tasks}
           status="In Progress"
+          handleDeleteTask={handleDeleteTask}
         />
         <TaskColumn
           title="In Review"
@@ -35,6 +42,7 @@ const App = () => {
           color="#8B5CF6"
           tasks={tasks}
           status="In Review"
+          handleDeleteTask={handleDeleteTask}
         />
         <TaskColumn
           title="Done"
@@ -42,6 +50,7 @@ const App = () => {
           color="#00875A"
           tasks={tasks}
           status="Done"
+          handleDeleteTask={handleDeleteTask}
         />
       </main>
     </div>
