@@ -1,7 +1,7 @@
 import TaskCard from "../task-card/TaskCard";
 import "./TaskColumn.css";
 
-const TaskColumn = ({ title, Icon, color }) => {
+const TaskColumn = ({ title, Icon, color, tasks, status }) => {
   return (
     <section className="task_column">
       <div className="task_column_heading">

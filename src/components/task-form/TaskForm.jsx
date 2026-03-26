@@ -2,7 +2,7 @@ import { useState } from "react";
 import Tag from "../tag/Tag";
 import "./TaskForm.css";
 
-const TaskForm = () => {
+const TaskForm = ({ setTasks }) => {
   const [taskData, setTaskData] = useState({
     task: "",
     status: "To Do",
@@ -32,7 +32,7 @@ const TaskForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(taskData);
+    setTasks((prev) => [...prev, taskData]);
   };
 
   return (
@@ -42,6 +42,7 @@ const TaskForm = () => {
           type="text"
           className="task_input"
           placeholder="Enter task detail"
+          autoComplete="off"
           name="task"
           value={taskData.task}
           onChange={handleTaskChange}
